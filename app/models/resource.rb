@@ -8,7 +8,7 @@ class Resource < ActiveRecord::Base
   end
 
   def status_string
-    if self.locked?
+    if locked?
       return "#{self.name} is locked by #{self.locked_by} for another #{minutes_remaining} minutes"
     else
       return "#{self.name} is not locked"
