@@ -19,7 +19,10 @@ post '/' do
       response[:response_type] = 'in-channel'
     end
     response[:text] = resource.status_string
-    return [200, { 'Content-type': 'application/json' }, [response.to_json] ]
+
+    status 200
+    headers 'Content-type' => 'application/json'
+    body response.to_json
   else
     return [200, ["Resource #{resource_name} is not available for locking."]]
   end
