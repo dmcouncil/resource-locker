@@ -26,7 +26,6 @@ class Resource < ActiveRecord::Base
 
   def minutes_remaining
     return 0 unless locked?
-    locked_local = Time.now.dst? ? (self.locked_until.getlocal + 3600) : self.locked_until.getlocal
-    ((locked_local - Time.new(2000, 1, 1, Time.now.hour, Time.now.min))/60).to_i
+    ((locked_until - Time.now)/60).to_i
   end
 end
