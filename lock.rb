@@ -16,7 +16,7 @@ post '/' do
     # lock resource for duration
     response = {}
     if resource.lock(request['user_name'], duration)
-      response[:response_type] = 'in-channel'
+      response[:response_type] = 'in_channel'
     end
     response[:text] = resource.status_string
 
