@@ -19,7 +19,7 @@ class Resource < ActiveRecord::Base
 
   def locked?
     return false if self.locked_until.nil?
-    return locked_local > Time.now
+    return locked_until > Time.now
   end
 
   def minutes_remaining
