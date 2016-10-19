@@ -1,9 +1,9 @@
 class Resource < ActiveRecord::Base
   def lock(user, duration)
-    # TODO: cap the duration of a lock - e.g. 600 is 10 hours
-    return false if locked?
+    return false if locked? && self.locked_by != user
+    duration = [duration.to_i, 600].min # Lock length is capped
     self.locked_by = user
-    self.locked_until = Time.now + (duration.to_i * 60) # Convert minutes to seconds
+    self.locked_until = Time.now + (duration * 60) # Convert minutes to seconds
     self.save
   end
 

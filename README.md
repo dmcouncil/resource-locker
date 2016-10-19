@@ -12,7 +12,9 @@ When this is set up as a Slack integration with an appropriate instance as the e
 
 `/lock resource_name` with a resource name but no duration returns the status of that resource - either "not locked" or "locked for another _n_ minutes".
 
-Finally, `/lock resource_name 30` attempts to lock that resource for 30 minutes. The length of the requested lock is in integer minutes (so e.g. five hours is 300). If the resource is not already locked, the return message will post to the entire channel, describing what was locked, by whom, and for how long. 
+Finally, `/lock resource_name 30` attempts to lock that resource for 30 minutes. The length of the requested lock is in integer minutes (so e.g. five hours is 300). If the resource is not already locked, the return message will post to the entire channel, describing what was locked, by whom, and for how long.
+
+The user "holding" the lock can release it using `/lock resource_name 0`.
 
 If the resource was already locked, the member requesting the lock will see the status of the resource (i.e. "locked by bruce for another 5 minutes") and no message will be shown to the whole channel.
 
@@ -20,10 +22,12 @@ If the resource was already locked, the member requesting the lock will see the 
 
 Things that will make single-site usage easier:
 
-* [ ] Allow users to release locks
+* [x] Allow users to release locks
 * [ ] Move Slack token to ENV variable (Figaro?)
 * [ ] Cap the length of lock allowed (again, possibly an env variable)
 * [ ] Provide for resource setup: how do we add/update/remove resources?
+* [ ] Tests!
+* [ ] More flexible authorization, so non-Slack clients can use it as an API
 
 Things needed for wider Slack use:
 
