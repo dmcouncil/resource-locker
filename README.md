@@ -24,7 +24,7 @@ Things that will make single-site usage easier:
 
 * [x] Allow users to release locks
 * [ ] Move Slack token to ENV variable (Figaro?)
-* [ ] Cap the length of lock allowed (again, possibly an env variable)
+* [x] Cap the length of lock allowed (again, possibly an env variable)
 * [ ] Provide for resource setup: how do we add/update/remove resources?
 * [ ] Tests!
 * [ ] More flexible authorization, so non-Slack clients can use it as an API
