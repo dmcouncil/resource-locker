@@ -1,6 +1,7 @@
 class UpdateResources < ActiveRecord::Migration[5.0]
   def change
-    change_column :resources, :locked_until, :datetime
+    remove_column :resources, :locked_until
+    add_column :resources, :locked_until, :datetime
     add_index :resources, :name
 
     r = Resource.find_by_name('development')
