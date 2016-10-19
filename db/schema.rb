@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018164326) do
+ActiveRecord::Schema.define(version: 20161019150909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "resources", force: :cascade do |t|
-    t.string "name"
-    t.string "locked_by"
-    t.time   "locked_until"
+    t.string   "name"
+    t.string   "locked_by"
+    t.datetime "locked_until"
+    t.index ["name"], name: "index_resources_on_name", using: :btree
   end
 
 end
