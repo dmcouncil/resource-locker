@@ -13,6 +13,5 @@ development:
   pool: 5
 
 test:
-  adapter: sqlite3
-  database: ":memory:"
-  timeout: 500
+  adapter: postgresql
+  database: resource_lock_test
