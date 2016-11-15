@@ -1,13 +1,19 @@
 # database.yml
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: resource_lock_production
+  pool: 5
+
 development:
   adapter: postgresql
   encoding: unicode
   database: resource_lock_dev
   pool: 5
 
-development:
+test:
   adapter: postgresql
   encoding: unicode
-  database: resource_lock_production
+  database: resource_lock_test
   pool: 5
