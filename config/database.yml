@@ -13,7 +13,6 @@ development:
   pool: 5
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: resource_lock_test
-  pool: 5
+  adapter: sqlite3
+  database: ":memory:"
+  timeout: 500

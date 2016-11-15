@@ -1,10 +1,17 @@
 source 'http://rubygems.org'
 
-gem 'capybara'
 gem 'figaro' # ENV variables
-gem 'pg'
 gem 'rake'
-gem 'rspec-sinatra'
-gem 'rspec'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+
+group :production, :development do
+  gem 'pg'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'rspec-sinatra'
+  gem 'rspec'
+  gem 'sqlite3'
+end
