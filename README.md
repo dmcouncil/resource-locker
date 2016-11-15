@@ -23,7 +23,7 @@ If the resource was already locked, the member requesting the lock will see the 
 Things that will make single-site usage easier:
 
 * [x] Allow users to release locks
-* [ ] Move Slack token to ENV variable (Figaro?)
+* [x] Move Slack token to ENV variable (Figaro?)
 * [x] Cap the length of lock allowed (again, possibly an env variable)
 * [ ] Provide for resource setup: how do we add/update/remove resources?
 * [ ] Tests!

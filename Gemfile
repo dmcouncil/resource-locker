@@ -4,4 +4,4 @@ gem 'sinatra'
 gem "sinatra-activerecord"
 gem "pg"
 gem "rake"
-# gem 'figaro' # ENV variables
+gem 'figaro' # ENV variables
