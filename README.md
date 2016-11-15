@@ -27,7 +27,7 @@ Things that will make single-site usage easier:
 * [x] Cap the length of lock allowed (again, possibly an env variable)
 * [ ] Provide for resource setup: how do we add/update/remove resources?
 * [ ] [Test main application](http://www.sinatrarb.com/testing.html)
-* [ ] [Get CI working](https://travis-ci.org/dmcouncil/resource-locker)
+* [x] [Get CI working](https://travis-ci.org/dmcouncil/resource-locker)
 * [ ] More flexible authorization, so non-Slack clients can use it as an API
 
 Things needed for wider Slack use:
