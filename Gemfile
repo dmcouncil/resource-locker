@@ -6,6 +6,10 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 
+group :test, :development do
+  gem 'pry'
+end
+
 group :test do
   gem 'capybara'
   gem 'rspec-sinatra'
