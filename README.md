@@ -35,6 +35,10 @@ Things needed for wider Slack use:
 * [ ] Multi-tenancy: scoping resources by team
 * [ ] Better authentication/authorization
  
+Other:
+
+* [ ] Now that we're testing, add and configure Guard?
+
 ### License
 
 Resource Locker was built by @pjmorse at The District Management Council. At this revision, this software has no license nor warrantee; if you use it, it's at your own risk.

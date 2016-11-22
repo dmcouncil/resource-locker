@@ -6,10 +6,29 @@ describe 'The Resource Locker App' do
     Sinatra::Application
   end
 
-  it "Returns an error for no parameters" do
+  it "Returns a list of possible resources for no params" do
     post '/'
-    binding.pry
-    expect(last_response).not_to be_ok
-    expect(last_response.body).to eq('Bad token')
+    expect(last_response).to be_ok
+    expect(last_response.body).to eq("You can use this to lock #{Resource.all.map(&:name).join(', ')}")
+  end
+
+  context 'with no existing locks' do
+    it 'returns "is not locked" when no time is requested' do
+    end
+
+    it 'returns a JSON lock message when time is requested' do
+    end
+  end
+
+  context 'when the resource is locked' do
+    # Set up a locked resource
+    it 'returns a message indicating the length of the lock when no time is requested' do
+    end
+
+    it 'returns a message indicating the remaining time and lock owner when time is requested by another user' do
+    end
+
+    it 'extends the lock when time is requested by the lock owner' do
+    end
   end
 end
