@@ -24,6 +24,7 @@ GEM
       xpath (~> 2.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
+    database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     extlib (0.9.16)
     figaro (1.1.1)
@@ -90,6 +91,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  database_cleaner
   figaro
   pg
   pry

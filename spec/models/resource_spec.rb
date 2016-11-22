@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Resource do
   context 'when the resource is locked by someone else' do
-    let!(:resource) { Resource.new(name: 'locked-resource', locked_by: 'someone-else', locked_until: Time.now + 600) }
+    let!(:resource) { Resource.new(name: 'locked-resource', locked_by: 'someone-else', locked_until: (Time.now + 600)) }
 
     describe '#lock' do
       it 'returns false' do
@@ -18,7 +18,7 @@ describe Resource do
   end
 
   context 'when the resource is locked by the user requesting the lock' do
-    let!(:resource) { Resource.new(name: 'locked-resource', locked_by: 'me', locked_until: Time.now + 600) }
+    let!(:resource) { Resource.new(name: 'locked-resource', locked_by: 'me', locked_until: (Time.now + 600)) }
 
     describe '#lock' do
       before do
