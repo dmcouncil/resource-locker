@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './app/models/resource'
-require 'pry'
 
 # This is the Slack endpoint
 post '/' do
