@@ -1,0 +1,23 @@
+%html
+  %head
+    %title Available Resources
+    :css
+      .actions, .resource-name { display: inline-block; }
+      li.resource { clear: both; }
+  %body
+    %h1 Resource Locker
+    %hr
+    %h2 Available Resources
+    %ul
+      - @resources.each do |resource|
+        %li.resource
+          .resource-name
+            = resource.name
+          .actions
+            %form{ action: "/resources/#{resource.id}", method: 'POST' }
+              %button{ type: 'submit', name: '_method', value: 'delete' } Delete
+    %hr
+    %h2 Add A Resource
+    %form{ action: '/resources', method: 'POST' }
+      %input{ type: 'text', name: 'resource[name]', placeholder: 'resource-name (case sensitive, no spaces)', size: 50 }
+      %button{ type: 'submit' } Save

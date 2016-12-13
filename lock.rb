@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './app/models/resource'
+require 'pry'
 
+# This is the Slack endpoint
 post '/' do
   return [400, ["Bad token"]] unless request['token'] == ENV['SLACK_REQUEST_TOKEN']
   resource_name, duration = request['text'].split unless request['text'].blank?
@@ -28,4 +30,24 @@ post '/' do
     # Couldn't find the resource
     return [200, ["Resource #{resource_name} is not available for locking."]]
   end
+end
+
+get '/resources' do
+  # Return a list of resources with a form for creating a new resource
+  @resources = Resource.order('name ASC') # Scope by tenancy when we do tenancy
+  haml :index
+end
+
+post '/resources' do
+  # Accept a payload for creating a new resource
+  Resource.create(name: params['resource']['name']).save
+  # Redirect to index on success
+  redirect '/resources'
+end
+
+delete '/resources/:id' do
+  resource = Resource.find(params['id'])
+  resource.delete
+  # Redirect to index on success
+  redirect '/resources'
 end
