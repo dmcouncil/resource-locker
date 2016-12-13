@@ -1,6 +1,7 @@
 ## Resource Locker
 
 [![Build Status](https://travis-ci.org/dmcouncil/resource-locker.svg?branch=master)](https://travis-ci.org/dmcouncil/resource-locker)
+[![Code Climate](https://codeclimate.com/repos/58505598fb4faa0dd8001946/badges/8b0fe770fb4e9f563143/gpa.svg)](https://codeclimate.com/repos/58505598fb4faa0dd8001946/feed)
 
 Resource Locker is a relatively simple Sinatra app for coordinating the use of shared resources. It doesn't actually lock the resources, of course (unless you write code to do so); instead it tracks when users have "claimed" the resource and for how long, and so other users hoping to use it will know, on asking, if the resource is in use and who is using it.
 
