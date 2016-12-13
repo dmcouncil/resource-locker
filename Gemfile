@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'figaro' # ENV variables
+gem 'haml'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
