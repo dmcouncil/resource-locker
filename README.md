@@ -37,9 +37,11 @@ Things needed for wider Slack use:
 * [ ] Multi-tenancy: scoping resources by team
 * [ ] Better authentication/authorization
  
-Other:
+Other ideas (feature creep):
 
-* [ ] Now that we're testing, add and configure Guard?
+* [x] Now that we're testing, add and configure Guard?
+* [ ] "Subscribe" to locked resources (see #3)
+* [ ] Remind lock owners of expiring locks and send cut-and-paste command to extend or re-lock (see #4)
 
 ### License
 

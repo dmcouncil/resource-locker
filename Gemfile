@@ -7,6 +7,8 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 
 group :test, :development do
+  gem 'guard'
+  gem 'guard-rspec'
   gem 'pry'
 end
 
