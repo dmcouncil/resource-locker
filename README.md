@@ -44,6 +44,6 @@ Other ideas (feature creep):
 * [ ] "Subscribe" to locked resources (see #3)
 * [ ] Remind lock owners of expiring locks and send cut-and-paste command to extend or re-lock (see #4)
 
-### License
+### Colophon
 
-Resource Locker was built by @pjmorse at The District Management Council. At this revision, this software has no license nor warrantee; if you use it, it's at your own risk.
+Resource Locker was built by [Parker Morse](/pjmorse) at [District Management Group](https://dmgroupK12.com).
