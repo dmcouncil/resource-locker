@@ -18,4 +18,5 @@ group :test do
   gem 'database_cleaner'
   gem 'rspec-sinatra'
   gem 'rspec'
+  gem 'simplecov', require: false
 end

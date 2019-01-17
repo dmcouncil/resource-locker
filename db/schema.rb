@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20161019150909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "resources", force: :cascade do |t|
-    t.string   "name"
-    t.string   "locked_by"
+  create_table "resources", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "locked_by"
     t.datetime "locked_until"
-    t.index ["name"], name: "index_resources_on_name", using: :btree
+    t.index ["name"], name: "index_resources_on_name"
   end
 
 end
