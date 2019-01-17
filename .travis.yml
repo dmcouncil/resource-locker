@@ -6,7 +6,7 @@ services:
   - postgresql
 env:
   global:
-    - CC_TEST_REPORTER_ID=31bc2a309cafa5fe7670fd9a3d083c2889b1178aa7be28367e1cb2a61163f38d
+    - CC_TEST_REPORTER_ID=a71144d95edc1eff52bd639de6a925dbafaa10a4eb702c91da5cf9f2e3bad8b0
 cache:
   bundler: true
 bundler_args: --without production development
