@@ -1,13 +1,27 @@
 language: ruby
-cache: bundler
 rvm:
  - 2.4.0
 # uncomment and edit the following line if your project needs to run something other than `rake`:
-script:
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec
 services:
   - postgresql
+env:
+  global:
+    - CC_TEST_REPORTER_ID=31bc2a309cafa5fe7670fd9a3d083c2889b1178aa7be28367e1cb2a61163f38d
+cache:
+  bundler: true
+bundler_args: --without production development
+install:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 before_script:
   - psql -c 'create database resource_lock_test;' -U postgres
+  - bundle
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+script:
+  - bundle exec rspec spec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+notifications:
+  slack: dmctechteam:weAm66wFzD2WpZtEMovrxb2D
