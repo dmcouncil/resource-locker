@@ -1,2 +1,7 @@
 config/application.yml
 coverage
+
+# We should only be enforcing dependencies where it's
+# really necessary, so Gemfile is useful but Gemfile.lock
+# not so much.
+Gemfile.lock
