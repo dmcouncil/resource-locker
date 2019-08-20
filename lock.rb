@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './app/models/resource'
+require './app/models/message'
 
 # This is the Slack endpoint
 post '/' do
@@ -11,6 +12,7 @@ post '/' do
     return [200, ["You can use this to lock #{Resource.all.map(&:name).join(', ')}"]]
   end
   resource = Resource.find_by_name(resource_name)
+
   if resource && duration.blank?
     # Return status of the resource
     return [200, [resource.status_string]]
@@ -18,6 +20,8 @@ post '/' do
     # lock resource for duration
     response = {}
     if resource.lock(request['user_name'], duration)
+      # Schedule a message to remind the user about expiring lock
+      Message.schedule_release_notification(request, resource, duration)
       response[:response_type] = 'in_channel' # Announce a new lock
     end
     response[:text] = resource.status_string
