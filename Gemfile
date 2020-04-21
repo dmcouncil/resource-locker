@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 ruby "2.4.5"
 
-gem 'excon'
+gem "excon", ">= 0.71.0"
 gem 'figaro' # ENV variables
 gem 'haml'
+gem "nokogiri", ">= 1.10.8"
 gem 'pg'
+gem "rack", ">= 2.0.8"
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
