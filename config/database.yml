@@ -1,17 +1,30 @@
-# database.yml
-
-production:
+docker: &docker
+  user: test # change to "test" for local dev with docker
+  password: test # change to "test" for local dev with docker
+  host: db # change to "db" for local dev with docker
+  port: 5432
   adapter: postgresql
   encoding: unicode
-  database: resource_lock_production
   pool: 5
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: resource_lock_dev
-  pool: 5
+  <<: *docker
+  database: resource_locker_development
 
-test:
-  adapter: postgresql
-  database: resource_lock_test
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test: &test
+  <<: *docker
+  database: resource_locker_test
+  min_messages: WARNING # http://strd6.com/2010/09/suppressing-notice-create-table-primary-key-will-create-implicit-index-when-running-rake-test-with-postgres-db/
+
+# The following config is for faking staging/prod locally, and will not mess up heroku:
+# https://devcenter.heroku.com/articles/rails-database-connection-behavior
+staging:
+  <<: *docker
+  database: resource_locker_development
+
+production:
+  <<: *docker
+  database: resource_locker_development

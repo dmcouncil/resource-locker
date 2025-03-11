@@ -107,6 +107,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
+  DatabaseCleaner.allow_remote_database_url = true # required for docker-compose setup
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end

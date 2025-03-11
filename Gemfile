@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.7.2"
+ruby "3.1.6"
 
 gem "excon"
 gem 'figaro' # ENV variables
@@ -10,6 +10,7 @@ gem "rack"
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+gem 'thin'
 
 group :test, :development do
   gem 'guard'
