@@ -7,10 +7,11 @@ gem 'haml'
 gem "nokogiri"
 gem 'pg'
 gem "rack"
+gem "rackup"
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'thin'
+gem 'puma'
 
 group :test, :development do
   gem 'guard'

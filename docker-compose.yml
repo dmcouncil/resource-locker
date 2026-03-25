@@ -1,12 +1,12 @@
 services:
   db:
-    image: postgres:14.13
+    image: postgres:17.4
     hostname: postgres
     restart: 'always'
     volumes:
-      - pgdata14:/var/lib/postgresql/data
+      - pgdata17:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=test
@@ -15,14 +15,14 @@ services:
     command:
       - /bin/sh
       - -c
-      - bundle exec rackup config.ru -p 3000
+      - bundle exec rackup config.ru -o 0.0.0.0 -p 3000
     volumes:
       - .:/resource-locker
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
       - db
     environment:
       - DATABASE_URL=postgres://test@db:5432
 volumes:
-  pgdata14:
+  pgdata17:
