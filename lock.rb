@@ -5,8 +5,8 @@ require './app/models/message'
 
 # This is the Slack endpoint
 post '/' do
-  return [400, ["Bad token"]] unless request['token'] == ENV['SLACK_REQUEST_TOKEN']
-  resource_name, duration = request['text'].split unless request['text'].blank?
+  return [400, ["Bad token"]] unless params['token'] == ENV['SLACK_REQUEST_TOKEN']
+  resource_name, duration = params['text'].split unless params['text'].blank?
   if resource_name.blank?
     # Return resources available
     return [200, ["You can use this to lock #{Resource.all.map(&:name).join(', ')}"]]
@@ -19,9 +19,9 @@ post '/' do
   elsif resource
     # lock resource for duration
     response = {}
-    if resource.lock(request['user_name'], duration)
+    if resource.lock(params['user_name'], duration)
       # Schedule a message to remind the user about expiring lock
-      Message.schedule_release_notification(request, resource, duration)
+      Message.schedule_release_notification(params, resource, duration)
       response[:response_type] = 'in_channel' # Announce a new lock
     end
     response[:text] = resource.status_string
